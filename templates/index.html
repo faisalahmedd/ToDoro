@@ -1,0 +1,285 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+    <h1 style="display:inline-block">To-Do List</h1>
+
+    <button id="filter" type="button" class="btn btn-outline-primary" onclick="myFunction()">Filters</button>
+
+    <form action="/" method="post">
+      <div id="panel" class="filters bg-light">
+
+        <div>
+          <h4 class="filter-title">Filter By:</h4>
+          <span><button type="submit" name="clear" value="clear" class="clear btn btn-light">Clear All</button></span>
+        </div>
+
+        <div class="titlecontainer-filters" id="urgency-filters">
+
+          <h5 class="text-muted">Urgency Filters</h5>
+        </div>
+
+        <div class="urgency-container" id="urgency-container">
+          <button type="submit" name="urgent-filter" value="urgent" class="btn btn-danger">
+          Urgent <span class="badge badge-light">{{urgent}}</span>
+          <span class="sr-only"></span>
+          </button>
+
+          <button type="submit" name="semi-filter" value="semi" class="btn btn-warning">
+          Semi-Urgent <span class="badge badge-light">{{semi}}</span>
+          <span class="sr-only"></span>
+          </button>
+
+          <button type="submit" name="neutral-filter" value="neutral" class="btn btn-success">
+          Neutral <span class="badge badge-light">{{neutral}}</span>
+          <span class="sr-only"></span>
+          </button>
+        </div>
+
+        <div class="titlecontainer-filters" id="category-filters">
+          <h5 class="text-muted">Category Filters</h5>
+        </div>
+
+        <div class="category-container" id="category-container">
+          <button type="submit" name="school-filter" value="school" class="btn btn-primary">
+          School <span class="badge badge-light">{{school}}</span>
+          <span class="sr-only"></span>
+          </button>
+
+          <button type="submit" name="work-filter" value="work" class="btn badge-work">
+          Work <span class="badge badge-light">{{work}}</span>
+          <span class="sr-only"></span>
+          </button>
+
+          <button type="submit" name="home-filter" value="home" class="btn badge-home">
+          Home <span class="badge badge-light">{{home}}</span>
+          <span class="sr-only"></span>
+          </button>
+
+          <button type="submit" name="expenses-filter" value="expenses" class="btn badge-expenses">
+          Expenses <span class="badge badge-light">{{expenses}}</span>
+          <span class="sr-only"></span>
+          </button>
+
+          <button type="submit" name="productivity-filter" value="productivity" class="btn badge-productivity">
+          Productivity <span class="badge badge-light">{{productivity}}</span>
+          <span class="sr-only"></span>
+          </button>
+
+          <button type="submit" name="errands-filter" value="errands" class="btn badge-errands">
+          Errands <span class="badge badge-light">{{errands}}</span>
+          <span class="sr-only"></span>
+          </button>
+
+          <button type="submit" name="lifestyle-filter" value="lifestyle" class="btn btn-info">
+          Lifestyle <span class="badge badge-light">{{lifestyle}}</span>
+          <span class="sr-only"></span>
+          </button>
+        </div>
+    </div>
+  </form>
+
+  <form action="/" method="post">
+    <table class="table table-bordered">
+      <colgroup>
+       <col span="1" style="width:30%;">
+       <col span="1" style="width:30%;">
+       <col span="1" style="width:6.7%;">
+       <col span="1" style="width:6.7%;">
+       <col span="1" style="width:6.7%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">Task</th>
+          <th scope="col">Notes
+          </th>
+          <th scope="col">Urgency
+          </th>
+          <th scope="col">Category</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for task in tasks%}
+        <tr>
+          <td>
+              <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" name={{task.taskid}} value={{task.taskid}} class="custom-control-input" id={{task.taskid}}>
+                    <label class="custom-control-label" for={{task.taskid}}>{{task.tasks}}</label>
+                </div>
+              </div>
+          </td>
+          <td>{{task.notes}}</td>
+
+          {%if task.urgency == 1%}
+          <td style="text-align:center;">
+            <div class="badge badge-pill badge-danger">
+              Urgent
+            </div>
+          </td>
+          {%elif task.urgency == 2%}
+          <td style="text-align:center;">
+            <div class="badge badge-pill badge-warning">
+              Semi-Urgent
+            </div>
+          </td>
+          {%else%}
+          <td style="text-align:center;">
+            <div class = "badge badge-pill badge-success">
+              Neutral
+            </div>
+          </td>
+          {%endif%}
+
+          {%if task.category == 1%}
+          <td style="text-align:center;">
+            <div class ="badge badge-pill badge-primary">
+              School
+            </div>
+          </td>
+          {%elif task.category == 2%}
+          <td style="text-align:center;">
+            <div class ="badge badge-pill badge-work">
+              Work
+            </div>
+          </td>
+          {%elif task.category == 3%}
+          <td style="text-align:center;">
+            <div class ="badge badge-pill badge-home">
+              Home
+            </div>
+          </td>
+          {%elif task.category == 4%}
+          <td style="text-align:center;">
+            <div class ="badge badge-pill badge-expenses">
+              Expenses
+            </div>
+          </td>
+          {%elif task.category == 5%}
+          <td style="text-align:center;">
+            <div class ="badge badge-pill badge-productivity">
+              Productivity
+            </div>
+          </td>
+          {%elif task.category == 6%}
+          <td style="text-align:center;">
+            <div class ="badge badge-pill badge-errands">
+              Errands
+            </div>
+          </td>
+          {%elif task.category == 7%}
+          <td style="text-align:center;">
+            <div class ="badge badge-pill badge-info">
+              Lifestyle
+            </div>
+          </td>
+          {%else%}
+          <td style="text-align:center;">
+            No Category
+          </td>
+          {%endif%}
+
+          <td>
+            <button type="submit" name={{task.taskid}} value={{task.taskid}} style="border-radius:15px"class="btn btn-outline-danger">Delete</button>
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+</form>
+    <button style="border-radius:15px" type="button" class="btn btn-outline-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal" >
+      New Task
+    </button>
+
+
+
+    <!-- Modal New Task-->
+    <form action="/" method="post">
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">New Task</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/" method="post">
+                <div class="form-group">
+                  <label for="task" class="col-form-label">New Task:</label>
+                  <input type="text" autocomplete="off" class="form-control" id="task" name="task" placeholder="New Task">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Notes:</label>
+                  <textarea class="form-control" id="message-text" placeholder="Notes" name="notes"></textarea>
+                </div>
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Tags</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01" name="urgency">
+                      <option selected>Urgency</option>
+                      <option value=1>Urgent</option>
+                      <option value=2>Semi-Urgent</option>
+                      <option value=3>Neutral</option>
+                    </select>
+                  </div>
+
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect02">Tags</label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect02" name="category">
+                      <option selected>Category</option>
+                      <option value=1>School</option>
+                      <option value=2>Work</option>
+                      <option value=3>Home</option>
+                      <option value=4>Expenses</option>
+                      <option value=5>Productivity</option>
+                      <option value=6>Errands</option>
+                      <option value=7>Lifestyle</option>
+                    </select>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary" name="insert" value="insert" type="submit">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script>
+      if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+      }
+      $(function(){
+        $("#filter").click(function(){
+          $("#panel").slideToggle("slow");
+        });
+
+        $("#urgency-filters").click(function(){
+          $("#urgency-container").slideToggle("slow");
+        });
+
+        $("#category-filters").click(function(){
+          $("#category-container").slideToggle("slow");
+        });
+
+      });
+
+
+    </script>
+{% endblock %}

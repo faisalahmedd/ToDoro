@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <h1 style="text-align:center" class="display-4">Study Tips</h1>
+
+    <div style="padding:10px; margin:20px; text-align:center" class="bg-quote">
+        <img src="https://www.imore.com/sites/imore.com/files/topic_images/2020/work-from-home-3.png" style="width:400px; height:300px;">
+        <blockquote style="text-align:center; vertical-align:middle;" class="blockquote">
+          <p class="mb-0">You have power over your mind - not outside events. Realize this, and you will find strength.</p>
+          <footer class="blockquote-footer">Marcus Aurelius, <cite title="Source Title">Meditations</cite></footer>
+        </blockquote>
+    </div>
+
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Active Recall
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+              One of the best Methods for studying is active recall, where you are forcing yourself to actively remember the material you had just learned.
+              <h5 id="first-revision" class="heading">First Revision</h5>
+              <div id="first-revision-content" class="tips-content">
+                  <p>For the first revision you can absorb the material however you want.</p>
+                  <p>Whether this be highlighting, creating/reading notes, listening to lectures, etc. This is your first exposure to the material so it's crucial you have a good system in place prior to moving on to the next step.</p>
+              </div>
+              <h5 class="heading" id="successive-revision">Successive Revisions</h5>
+              <div id="successive-revision-content" class="tips-content">
+                  <p>This is where active recall comes in.</p>
+                  <p>Instead of passively re-reading those notes you made or re-highlighting the same text, you need to be testing yourself using a variety of methods to consolidate your knowledge.</p>
+                  <p>Some include:</p>
+                  <ul>
+                      <li>Testing yourself through questions (self-made, textbook, etc.)</li>
+                      <li>Creating Flashcards</li>
+                      <li>Drawing connections between different concepts covered</li>
+                      <li>Creating visuals</li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Spaced Repetition
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body">
+              <h5 id="forgetting-curve" class="heading">The Forgetting Curve</h5>
+              <div id="forgetting-curve-graph" class="tips-content">
+                  <img src="https://d33wubrfki0l68.cloudfront.net/6f70ef583e6a26ec84e4e9709f8eca378d8a71ed/7d128/static/b4a52955e5c4058081ead5e3f10cbe73/248e9/rateforgettingcurve.png" alt="forgetting curve">
+              </div>
+              <h5 id="forgetting-curve-rationale" class="heading">Explanation</h5>
+              <div id="forgetting-curve-rationale-content" class="tips-content">
+                  <p>The visual shown represents "The Forgetting Curve"</p>
+                  <ul>
+                      <li>Often times we find ourselves to go over a concept/topic once and forget about it a few days later</li>
+                      <li>Or, more commonly, we are all guilty of cramming before a test/exam once before, and we found ourselves yet again forgetting the content once again only to be forced to relearn all that same information for
+                          a final exam, follow-up class, etc.</li>
+                  <li>In order to minimimize the amount of stress we face when being forced to cram weeks worth of information into our brain, and also the degree to which we forget this information, it is necessary to combat this forgetting curve</li>
+                  <li>Essentially, if we review the content regularly at given times, it resets this forgetting curve over and over, making it more difficult to forget the content over a longer period of time, while also minimizing your work load and stress when it comes time to take the test</li>
+                  </ul>
+              </div>
+              <h5 id="days" class="heading">What Days Should I revise on?</h5>
+              <div id="days-content" class="tips-content">
+                  <p>A general rule of thumb is to use the Fibonacci Sequence numbers. (visual shown is just an example of one schedule)</p>
+                  <p>Example:</p>
+                  <ul>
+                      <li>Second Reviewal: 1 day after First</li>
+                      <li>Third Reviewal: 1 day after Second</li>
+                      <li>Fourth Reviewal: 2 days after Third</li>
+                  </ul>
+                  <p>How you decide what days to study what topics is up to you, but it could be helpful to group certain subjects together as they work similar parts of the brain.</p>
+                  <p>Example:</p>
+                  <ul>
+                      <li>Application Based Courses: Chemistry, Mathematics, Physics, etc.</li>
+                      <li>Memorization Based Courses: Biological Sciences, Social Sciences, etc.</li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Pomodoro
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+             <h5 id="what" class="heading">What is it?</h5>
+             <div id="what-content" class="tips-content">
+                 <p>Contrary to popular belief, it is quite inefficient to power through a study session for hours on end without taking a break, as the amount of information you will retain will be far less than you imagine.</p>
+                 <p>In order to maximize our quality of studying, it is important to take breaks at regular time intervals to allow for your brain to recharge.</p>
+                 <p>Pomodoro method:</p>
+                 <ul>
+                     <li>Study for 25-30 minutes</li>
+                     <li>Break for 5 minutes</li>
+                     <li>Repeat</li>
+                 </ul>
+                 <p>This method allows for you to chunk up your studying without feeling drained, and it helps build resliency towards studying for longer periods of time</p>
+                 <p>Of course, this method isn't the end all be all, but rather it is meant to help you build up to the point where you could study for longer than 30 minutes at a time without needing a break</p>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(function(){
+        $("#first-revision").click(function(){
+          $("#first-revision-content").slideToggle("slow");
+        });
+
+        $("#successive-revision").click(function(){
+          $("#successive-revision-content").slideToggle("slow");
+        });
+
+        $("#forgetting-curve").click(function(){
+          $("#forgetting-curve-graph").slideToggle("slow");
+        });
+
+        $("#forgetting-curve-rationale").click(function(){
+          $("#forgetting-curve-rationale-content").slideToggle("slow");
+        });
+
+        $("#days").click(function(){
+          $("#days-content").slideToggle("slow");
+        });
+
+        $("#what").click(function(){
+          $("#what-content").slideToggle("slow");
+        });
+
+      });
+
+
+    </script>
+{% endblock %}

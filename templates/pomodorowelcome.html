@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/pomodorowelcome" method="post">
+        <div class="image-container">
+            <h1 class="display-3">Pomodoro Timer</h1>
+            <p class="lead">Build Reseliency and Discipline</p>
+            <img id="pom-person" src="https://i.ya-webdesign.com/images/focus-clipart-productive.png" alt="person being productive">
+            <button style="margin-top:10px; border-radius:15px" class="btn btn-primary btn-block btn-lg" type="submit">Start Session</button>
+        </div>
+    </form>
+{% endblock %}

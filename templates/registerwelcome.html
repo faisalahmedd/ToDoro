@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+    <div class="image-container">
+        <h1 class="display-1">Welcome to ToDoro!</h1>
+        <p class="lead">Sign up for free down below and start your new life today</p>
+        <img id="cover-person" src="https://digitallion.in/wp-content/uploads/2020/03/Office-Boy.png" alt="person being productive">
+    </div>
+    <form action="/registerwelcome" method="post">
+        <button style="margin-top:10px; border-radius:15px" class="btn btn-primary btn-block btn-lg" type="submit">Register</button>
+    </form>
+{% endblock %}
